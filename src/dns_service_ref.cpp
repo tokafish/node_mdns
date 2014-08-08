@@ -125,7 +125,7 @@ NAN_PROPERTY_GETTER(ServiceRef::fd_getter) {
 
 NAN_PROPERTY_GETTER(ServiceRef::initialized_getter) {
     NanScope();
-    ServiceRef * service_ref = ObjectWrap::Unwrap<ServiceRef>(args.This());
+    ServiceRef * service_ref = ObjectWrap::Unwrap<ServiceRef>(args.This().As<Object>());
     NanReturnValue(NanNew<Boolean>(service_ref->IsInitialized()));
 }
 
