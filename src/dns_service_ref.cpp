@@ -110,7 +110,7 @@ ServiceRef::SetSocketFlags() {
 
 NAN_PROPERTY_GETTER(ServiceRef::fd_getter) {
     NanScope();
-    ServiceRef * service_ref = ObjectWrap::Unwrap<ServiceRef>(args.This());
+    ServiceRef * service_ref = ObjectWrap::Unwrap<ServiceRef>(args.This().As<Object>());
     int fd = -1;
     if (service_ref->ref_) {
         fd = DNSServiceRefSockFD(service_ref->ref_);
